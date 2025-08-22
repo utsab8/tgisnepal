@@ -2203,7 +2203,7 @@
 <nav class="navbar" id="navbar">
     <div class="nav-container">
         <a href="index.html" class="logo">
-            <div class="logo-icon">T</div>
+            
             <span style="color: #22c55e;">TGIS</span><span style="color: #00008B;"> Nepal</span>
         </a>
 
@@ -2434,9 +2434,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     Cutting-edge land surveying, mapping, and geospatial solutions powered by advanced technology and decades of expertise. Precision you can trust, results you can rely on.
                 </p>
                 
-                <button id="stats-toggle-btn" class="stats-toggle-btn" aria-label="Show Stats">
-                    <i class="fas fa-chart-bar"></i> Our Stats
-                </button>
+                
             </div>
         </div>
     </section>
@@ -2723,6 +2721,48 @@ document.addEventListener('DOMContentLoaded', function() {
     </section>
 
     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
+
+    // Only add event listeners if hamburger exists
+    if (hamburger && navMenu) {
+        hamburger.addEventListener('click', function() {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu when link is clicked
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });            // ...existing code...
+            document.addEventListener('DOMContentLoaded', function() {
+                const hamburger = document.querySelector('.hamburger');
+                const navMenu = document.querySelector('.nav-menu');
+            
+                // Only add event listeners if hamburger and navMenu exist
+                if (hamburger && navMenu) {
+                    hamburger.addEventListener('click', function() {
+                        hamburger.classList.toggle('active');
+                        navMenu.classList.toggle('active');
+                    });
+            
+                    // Close menu when link is clicked
+                    document.querySelectorAll('.nav-link').forEach(link => {
+                        link.addEventListener('click', () => {
+                            hamburger.classList.remove('active');
+                            navMenu.classList.remove('active');
+                        });
+                    });
+                }
+            });
+            // ...existing code...
+        });
+    }
+});
+
         // Service data for modals
         const servicesData = {
             cadastral: {

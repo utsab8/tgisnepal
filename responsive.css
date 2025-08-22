@@ -20,9 +20,34 @@ img {
     cursor: pointer;
     background: none;
     border: none;
-    font-size: 1.5rem;
-    color: #333;
+    position: absolute;
+    right: 20px;
+    top: 20px;
     z-index: 1001;
+    width: 30px;
+    height: 30px;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: #00b140;
+}
+
+.hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
 }
 
 /* Large Screens (992px and below) */
@@ -48,13 +73,16 @@ img {
 /* Medium Screens (768px and below) */
 @media (max-width: 768px) {
     .hamburger {
-        display: block;
+        display: block !important;
+        position: absolute;
+        right: 20px;
+        top: 20px;
     }
     
     .nav-menu {
         position: fixed;
-        top: 80px;
-        right: -100%;
+        top: 70px;
+        left: -100%;
         flex-direction: column;
         background-color: white;
         width: 100%;
@@ -67,7 +95,7 @@ img {
     }
     
     .nav-menu.active {
-        right: 0;
+        left: 0;
     }
     
     .hero-title, .section-title, h1 {

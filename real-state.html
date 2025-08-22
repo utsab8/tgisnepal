@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Premium Real Estate Services - TGIS</title>
+    <title>TGIS Nepal - Real Estate Services Coming Soon</title>
     
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -12,477 +12,650 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* Reset and Base Styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
         
+        :root {
+            --primary-green: #22c55e;
+            --light-green: #dcfce7;
+            --dark-green: #16a34a;
+            --text-dark: #333;
+            --text-light: #666;
+            --white: #ffffff;
+        }
+        
         body {
             font-family: 'Inter', sans-serif;
-            color: #333;
-            line-height: 1.6;
-            padding-top: 80px;
-            overflow-x: hidden;
+            overflow: hidden;
+            background: linear-gradient(135deg, 
+                rgba(34, 197, 94, 0.9), 
+                rgba(22, 163, 74, 0.8)), 
+                url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=2073&q=80') center/cover no-repeat fixed;
+            color: white;
+            height: 100vh;
         }
-        
-        /* Navbar Styles */
-        .navbar {
-            position: fixed;
+
+        .overlay {
+            position: absolute;
             top: 0;
             left: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
-            z-index: 1000;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.3);
+            z-index: 1;
         }
-        
-        .nav-container {
+
+        .container {
+            position: relative;
+            z-index: 2;
+            height: 100vh;
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            padding: 0 2rem;
-            height: 80px;
-            max-width: 1400px;
-            margin: 0 auto;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
         }
-        
+
+        .content {
+            max-width: 800px;
+            animation: fadeInUp 1s ease-out;
+        }
+
         .logo {
             display: flex;
             align-items: center;
-            text-decoration: none;
+            justify-content: center;
+            margin-bottom: 3rem;
+            animation: slideInDown 1s ease-out;
         }
-        
+
         .logo-icon {
-            width: 45px;
-            height: 45px;
-            background-color: #22c55e;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-green), var(--dark-green));
             color: white;
-            border-radius: 12px;
+            border-radius: 15px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 800;
-            margin-right: 10px;
-            font-size: 1.5rem;
+            margin-right: 15px;
+            font-size: 2rem;
+            box-shadow: 0 8px 25px rgba(34, 197, 94, 0.4);
         }
-        
+
         .logo-text-tgis {
-            color: #22c55e;
+            color: var(--white);
             font-weight: bold;
-            font-size: 1.8rem;
-            display: inline-block;
+            font-size: 2.5rem;
+            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
         }
-        
+
         .logo-text-nepal {
             color: #00008B;
             font-weight: bold;
-            font-size: 1.8rem;
-            display: inline-block;
+            font-size: 2.5rem;
+            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
         }
-        
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-        
-        .nav-link {
-            color: #333;
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s;
-            position: relative;
-        }
-        
-        .nav-link:hover {
-            color: #22c55e;
-        }
-        
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: #22c55e;
-            transition: width 0.3s;
-        }
-        
-        .nav-link:hover::after {
-            width: 100%;
-        }
-        
-        /* Mobile Menu */
-        .hamburger {
-            display: none;
-            cursor: pointer;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            color: #333;
-        }
-        
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, rgba(34, 197, 94, 0.9), rgba(16, 185, 129, 0.8)), url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') center/cover no-repeat;
-            height: 80vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            padding: 0 2rem;
-        }
-        
-        .hero-content {
-            max-width: 800px;
-        }
-        
-        .hero-title {
+
+        .main-title {
             font-family: 'Playfair Display', serif;
             font-size: 4rem;
             margin-bottom: 1.5rem;
+            font-weight: 700;
+            text-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
             line-height: 1.2;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            animation: zoomIn 1s ease-out 0.3s both;
         }
-        
-        .hero-description {
-            font-size: 1.2rem;
-            margin-bottom: 2.5rem;
+
+        .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .description {
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+            opacity: 0.9;
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 1s ease-out 0.9s both;
         }
-        
-        .btn {
-            display: inline-block;
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-            cursor: pointer;
+
+        .coming-soon-info {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 3rem;
+            animation: slideInUp 1s ease-out 1.2s both;
         }
-        
-        .btn-primary {
-            background-color: white;
-            color: #22c55e;
-            margin-right: 1rem;
-        }
-        
-        .btn-primary:hover {
-            background-color: #f8f8f8;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-        
-        .btn-secondary {
-            background-color: transparent;
-            color: white;
-            border: 2px solid white;
-        }
-        
-        .btn-secondary:hover {
-            background-color: rgba(255, 255, 255, 0.1);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-        
-        /* Footer Styles */
-        .footer {
-            background-color: #f8f8f8;
-            padding: 4rem 2rem;
-        }
-        
-        .footer-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-        }
-        
-        /* Responsive Styles */
-        @media (max-width: 992px) {
-            .hero-title {
-                font-size: 3.5rem;
-            }
-            
-            .nav-menu {
-                gap: 1.5rem;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .hamburger {
-                display: block;
-            }
-            
-            .nav-menu {
-                position: fixed;
-                top: 80px;
-                right: -100%;
-                flex-direction: column;
-                background-color: white;
-                width: 100%;
-                text-align: center;
-                transition: 0.3s;
-                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
-                padding: 2rem 0;
-                gap: 2rem;
-            }
-            
-            .nav-menu.active {
-                right: 0;
-            }
-            
-            .hero-title {
-                font-size: 2.8rem;
-            }
-            
-            .hero-description {
-                font-size: 1rem;
-            }
-            
-            .btn {
-                padding: 0.8rem 1.5rem;
-                font-size: 0.9rem;
-            }
-            
-            .btn-primary {
-                margin-right: 0.5rem;
-            }
-        }
-        
-        @media (max-width: 576px) {
-            .nav-container {
-                padding: 0 1rem;
-            }
-            
-            .logo-icon {
-                width: 40px;
-                height: 40px;
-                font-size: 1.3rem;
-            }
-            
-            .logo-text-tgis, .logo-text-nepal {
-                font-size: 1.5rem;
-            }
-            
-            .hero-title {
-                font-size: 2.2rem;
-            }
-            
-            .hero {
-                height: 70vh;
-            }
-            
-            .footer {
-                padding: 3rem 1rem;
-            }
-            
-            .footer-container {
-                grid-template-columns: 1fr;
-            }
-            
-            .btn {
-                display: block;
-                width: 100%;
-                margin-bottom: 1rem;
-            }
-            
-            .btn-primary {
-                margin-right: 0;
-            }
-        }
-        
-        .footer-logo {
+
+        .info-item {
             display: flex;
             align-items: center;
-            margin-bottom: 1.5rem;
-            text-decoration: none;
-        }
-        
-        .footer-heading {
+            gap: 1rem;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(15px);
+            border-radius: 25px;
+            padding: 1.5rem 2.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
             font-size: 1.2rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            color: #333;
+            font-weight: 600;
+            transition: all 0.3s ease;
         }
-        
-        .footer-links {
-            list-style: none;
+
+        .info-item:hover {
+            transform: translateY(-5px) scale(1.05);
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
         }
-        
-        .footer-link {
-            margin-bottom: 0.8rem;
+
+        .info-item i {
+            color: var(--primary-green);
+            font-size: 1.5rem;
+            filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.3));
         }
-        
-        .footer-link a {
-            color: #666;
+
+        .back-home-btn {
+            position: absolute;
+            top: 2rem;
+            left: 2rem;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(15px);
+            color: white;
             text-decoration: none;
-            transition: color 0.3s;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            font-weight: 600;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            z-index: 10;
+            animation: slideInDown 1s ease-out 0.5s both;
         }
-        
-        .footer-link a:hover {
-            color: #22c55e;
+
+        .back-home-btn:hover {
+            background: var(--primary-green);
+            border-color: var(--primary-green);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(34, 197, 94, 0.3);
         }
-        
-        .social-links {
+
+        .features {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease-out 1.5s both;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 1rem 1.5rem;
+            border-radius: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .feature-item:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+        }
+
+        .feature-icon {
+            color: var(--primary-green);
+            font-size: 1.2rem;
+            filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.3));
+        }
+
+        .notify-section {
+            animation: fadeInUp 1s ease-out 1.8s both;
+        }
+
+        .notify-title {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .notify-form {
             display: flex;
             gap: 1rem;
-            margin-top: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            max-width: 500px;
+            margin: 0 auto;
         }
-        
+
+        .email-input {
+            flex: 1;
+            min-width: 280px;
+            padding: 1.2rem 1.5rem;
+            border: none;
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(15px);
+            color: white;
+            font-size: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .email-input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .email-input:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 0.2);
+            border-color: var(--primary-green);
+            box-shadow: 0 0 20px rgba(34, 197, 94, 0.3);
+        }
+
+        .notify-btn {
+            padding: 1.2rem 2.5rem;
+            background: var(--white);
+            color: var(--primary-green);
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2);
+        }
+
+        .notify-btn:hover {
+            background: var(--light-green);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(255, 255, 255, 0.3);
+        }
+
+        .social-links {
+            position: absolute;
+            bottom: 3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 1.5rem;
+            animation: slideInUp 1s ease-out 2.1s both;
+        }
+
         .social-link {
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 40px;
-            height: 40px;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
-            background-color: #f1f1f1;
-            color: #333;
-            text-decoration: none;
-            transition: all 0.3s;
-        }
-        
-        .social-link:hover {
-            background-color: #22c55e;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(15px);
             color: white;
-            transform: translateY(-3px);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 1.2rem;
         }
-        
-        .copyright {
-            text-align: center;
-            margin-top: 4rem;
-            padding-top: 2rem;
-            border-top: 1px solid #eaeaea;
-            color: #666;
+
+        .social-link:hover {
+            background: var(--primary-green);
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 15px 30px rgba(34, 197, 94, 0.4);
+        }
+
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: float 15s linear infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes zoomIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .pulse-animation {
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 2.5rem;
+            }
+            
+            .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .description {
+                font-size: 1rem;
+            }
+            
+            .countdown {
+                gap: 1rem;
+            }
+            
+            .countdown-item {
+                min-width: 100px;
+                padding: 1rem;
+            }
+            
+            .countdown-number {
+                font-size: 2rem;
+            }
+            
+            .features {
+                gap: 1rem;
+            }
+            
+            .feature-item {
+                padding: 0.8rem 1.2rem;
+                font-size: 0.9rem;
+            }
+            
+            .notify-form {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .email-input {
+                min-width: 100%;
+            }
+            
+            .social-links {
+                bottom: 2rem;
+                gap: 1rem;
+            }
+            
+            .social-link {
+                width: 45px;
+                height: 45px;
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .logo-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+            
+            .logo-text-tgis, .logo-text-nepal {
+                font-size: 2rem;
+            }
+            
+            .main-title {
+                font-size: 2rem;
+            }
+            
+            .countdown {
+                gap: 0.5rem;
+            }
+            
+            .countdown-item {
+                min-width: 80px;
+                padding: 0.8rem;
+            }
+            
+            .countdown-number {
+                font-size: 1.5rem;
+            }
+            
+            .countdown-label {
+                font-size: 0.8rem;
+            }
+            
+            .features {
+                flex-direction: column;
+                align-items: center;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Global Navbar -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="index.html" class="logo">
+    <div class="overlay"></div>
+    <div class="particles" id="particles"></div>
+    
+    <!-- Back to Home Button -->
+    <a href="index.html" class="back-home-btn">
+        <i class="fas fa-arrow-left"></i>
+        Back to Home
+    </a>
+    
+    <div class="container">
+        <div class="content">
+            <div class="logo">
                 <div class="logo-icon">T</div>
                 <span class="logo-text-tgis">TGIS</span>
-                <span class="logo-text-nepal">Nepal</span>
-            </a>
-            <button class="hamburger" id="hamburger">
-                <i class="fas fa-bars"></i>
-            </button>
-            <ul class="nav-menu" id="nav-menu">
-                <li><a href="index.html" class="nav-link">Home</a></li>
-                <li><a href="about.html" class="nav-link">About</a></li>
-                <li><a href="services.html" class="nav-link">Services</a></li>
-                <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
-                <li><a href="careers.html" class="nav-link">Careers</a></li>
-                <li><a href="contact.html" class="nav-link">Contact</a></li>
-            </ul>
+                <span class="logo-text-nepal"> Nepal</span>
+            </div>
+            
+            <h1 class="main-title">Real Estate Services</h1>
+            <h2 class="subtitle">Coming Soon</h2>
+            <p class="description">
+                We're building something extraordinary for Nepal's real estate market. Our premium real estate services will revolutionize how you buy, sell, and invest in properties across Nepal.
+            </p>
+            
+            <div class="coming-soon-info">
+                <div class="info-item">
+                    <i class="fas fa-clock"></i>
+                    <span>Launching Soon</span>
+                </div>
+            </div>
+            
+            <div class="features">
+                <div class="feature-item">
+                    <i class="fas fa-home feature-icon"></i>
+                    <span>Premium Properties</span>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-chart-line feature-icon"></i>
+                    <span>Investment Consulting</span>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-handshake feature-icon"></i>
+                    <span>Expert Guidance</span>
+                </div>
+            </div>
+            
+            
         </div>
-    </nav>
+    </div>
     
-    <!-- JavaScript for Mobile Menu -->
+  
+
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const hamburger = document.getElementById('hamburger');
-            const navMenu = document.getElementById('nav-menu');
+        // Email notification form
+        document.getElementById('notifyForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.getElementById('emailInput').value;
+            const button = document.querySelector('.notify-btn');
+            const originalText = button.innerHTML;
             
-            hamburger.addEventListener('click', function() {
-                navMenu.classList.toggle('active');
+            // Simulate form submission
+            button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+            button.disabled = true;
+            
+            setTimeout(() => {
+                button.innerHTML = '<i class="fas fa-check"></i> Thank You!';
+                button.style.background = 'var(--primary-green)';
+                button.style.color = 'white';
                 
-                // Change hamburger icon
-                const icon = hamburger.querySelector('i');
-                if (navMenu.classList.contains('active')) {
-                    icon.classList.remove('fa-bars');
-                    icon.classList.add('fa-times');
-                } else {
-                    icon.classList.remove('fa-times');
-                    icon.classList.add('fa-bars');
-                }
-            });
+                setTimeout(() => {
+                    button.innerHTML = originalText;
+                    button.disabled = false;
+                    button.style.background = 'var(--white)';
+                    button.style.color = 'var(--primary-green)';
+                    document.getElementById('emailInput').value = '';
+                }, 3000);
+            }, 2000);
+        });
+        
+        // Create floating particles
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = window.innerWidth > 768 ? 50 : 20; // Fewer particles on mobile
             
-            // Close menu when clicking on a nav link
-            document.querySelectorAll('.nav-link').forEach(link => {
-                link.addEventListener('click', () => {
-                    navMenu.classList.remove('active');
-                    const icon = hamburger.querySelector('i');
-                    icon.classList.remove('fa-times');
-                    icon.classList.add('fa-bars');
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.width = Math.random() * 4 + 2 + 'px';
+                particle.style.height = particle.style.width;
+                particle.style.animationDelay = Math.random() * 15 + 's';
+                particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+        
+        // Add parallax effect to background (disabled on mobile for performance)
+        if (window.innerWidth > 768) {
+            document.addEventListener('mousemove', function(e) {
+                const mouseX = e.clientX / window.innerWidth;
+                const mouseY = e.clientY / window.innerHeight;
+                
+                document.body.style.backgroundPosition = 
+                    `${50 + mouseX * 5}% ${50 + mouseY * 5}%`;
+            });
+        }
+        
+        // Initialize everything when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            createParticles();
+            
+            // Add hover effects to info items
+            document.querySelectorAll('.info-item').forEach(item => {
+                item.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px) scale(1.05)';
+                });
+                
+                item.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
                 });
             });
         });
+        
+        // Add glowing effect to logo
+        setInterval(() => {
+            const logoIcon = document.querySelector('.logo-icon');
+            if (logoIcon) {
+                logoIcon.style.boxShadow = `0 8px 25px rgba(34, 197, 94, ${0.4 + Math.random() * 0.3})`;
+            }
+        }, 2000);
+
+        // Handle window resize for responsive particles
+        let resizeTimeout;
+        window.addEventListener('resize', function() {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(function() {
+                // Recreate particles on resize for better responsive behavior
+                const particlesContainer = document.getElementById('particles');
+                particlesContainer.innerHTML = '';
+                createParticles();
+            }, 250);
+        });
     </script>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1 class="hero-title">Luxury Real Estate Excellence</h1>
-            <p class="hero-description">Transform your property dreams into reality with our premium real estate services, cutting-edge technology, and personalized approach to every transaction.</p>
-            <div class="hero-buttons">
-                <a href="#services" class="btn btn-primary">Explore Services</a>
-                <a href="#contact" class="btn btn-secondary">Get Consultation</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-column">
-                <a href="index.html" class="footer-logo">
-                    <div class="logo-icon">T</div>
-                    <span class="logo-text-tgis">TGIS</span>
-                    <span class="logo-text-nepal"> Nepal</span>
-                </a>
-                <p>Providing innovative real estate solutions with a focus on luxury properties and exceptional client service.</p>
-                <div class="social-links">
-                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-            </div>
-            <div class="footer-column">
-                <h3 class="footer-heading">Quick Links</h3>
-                <ul class="footer-links">
-                    <li class="footer-link"><a href="index.html">Home</a></li>
-                    <li class="footer-link"><a href="about.html">About Us</a></li>
-                    <li class="footer-link"><a href="services.html">Services</a></li>
-                    <li class="footer-link"><a href="portfolio.html">Portfolio</a></li>
-                    <li class="footer-link"><a href="contact.html">Contact</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h3 class="footer-heading">Services</h3>
-                <ul class="footer-links">
-                    <li class="footer-link"><a href="#">Luxury Property Sales</a></li>
-                    <li class="footer-link"><a href="#">Property Management</a></li>
-                    <li class="footer-link"><a href="#">Investment Consulting</a></li>
-                    <li class="footer-link"><a href="#">Market Analysis</a></li>
-                    <li class="footer-link"><a href="#">Virtual Tours</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h3 class="footer-heading">Contact Us</h3>
-                <ul class="footer-links">
-                    <li class="footer-link"><i class="fas fa-map-marker-alt"></i> 123 Luxury Lane, Kathmandu, Nepal</li>
-                    <li class="footer-link"><i class="fas fa-phone"></i> +977 1 234 5678</li>
-                    <li class="footer-link"><i class="fas fa-envelope"></i> info@tgisnepal.com</li>
-                    <li class="footer-link"><i class="fas fa-clock"></i> Mon-Fri: 9AM-6PM</li>
-                </ul>
-            </div>
-        </div>
-        <div class="copyright">
-            <p>&copy; 2023 TGIS Nepal. All rights reserved.</p>
-        </div>
-    </footer>
 </body>
 </html>

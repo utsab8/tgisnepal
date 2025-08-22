@@ -770,6 +770,25 @@
                 --border: #059669;
             }
         }
+
+        .view-more-btn {
+            display: inline-block;
+            margin-top: 18px;
+            padding: 10px 28px;
+            background: linear-gradient(90deg, #38b6ff 0%, #0099ff 100%);
+            color: #fff;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 16px rgba(56,182,255,0.10);
+            transition: background 0.3s, box-shadow 0.3s;
+        }
+        .view-more-btn:hover {
+            background: linear-gradient(90deg, #0099ff 0%, #38b6ff 100%);
+            box-shadow: 0 8px 24px rgba(56,182,255,0.18);
+        }
     </style>
 <style>
         * {
@@ -1785,7 +1804,7 @@
 <nav class="navbar" id="navbar">
     <div class="nav-container">
         <a href="index.html" class="logo">
-            <div class="logo-icon">T</div>
+            
             <span style="color: #22c55e;">TGIS</span><span style="color: #00008B;"> Nepal</span>
         </a>
 
@@ -2020,8 +2039,8 @@ document.addEventListener('DOMContentLoaded', function() {
         
         <div class="container">
             <div class="hero-content">
-                <h1></h1>
-                <p class="hero-subtitle">Crafting solutions that fit your needs.</p>
+                <h1>Crafting solutions that fit your needs.</h1>
+                <p class="hero-subtitle"></p>
                 
                 <div class="hero-stats" id="heroStats">
                     <div class="stat-item">
@@ -2041,7 +2060,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         <span class="stat-label">Countries Served</span>
                     </div>
                 </div>
-            </div>
+            </div 
         </div>
         
         <div class="scroll-indicator">
@@ -2067,15 +2086,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         <h3>Survey Services</h3>
                         <p class="service-description">Professional land surveying, topographic mapping, and boundary determination with state-of-the-art equipment and certified professionals.</p>
                         
-                        <ul class="service-features">
-                            <li><i class="fas fa-check"></i> GPS & Total Station Surveys</li>
-                            <li><i class="fas fa-check"></i> Topographic Mapping</li>
-                            <li><i class="fas fa-check"></i> Boundary Analysis</li>
-                        </ul>
-                        
-                        <a href="#" class="service-link">
-                            Learn More <i class="fas fa-arrow-right"></i>
-                        </a>
+                        <a href="survey-services.html" class="view-more-btn">View More</a>
                     </div>
                 </div>
 
@@ -2088,15 +2099,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         <h3>IT Solutions</h3>
                         <p class="service-description">Comprehensive technology services including software development, cloud solutions, and digital transformation strategies.</p>
                         
-                        <ul class="service-features">
-                            <li><i class="fas fa-check"></i> Custom Software Development</li>
-                            <li><i class="fas fa-check"></i> Cloud Infrastructure</li>
-                            <li><i class="fas fa-check"></i> Digital Transformation</li>
-                        </ul>
-                        
-                        <a href="#" class="service-link">
-                            Learn More <i class="fas fa-arrow-right"></i>
-                        </a>
+                        <a href="it-services.html" class="view-more-btn">View More</a>
                     </div>
                 </div>
 
@@ -2109,15 +2112,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         <h3>Civil & Architecture</h3>
                         <p class="service-description">Expert architectural design, structural engineering, and construction management services for residential and commercial projects.</p>
                         
-                        <ul class="service-features">
-                            <li><i class="fas fa-check"></i> Architectural Design</li>
-                            <li><i class="fas fa-check"></i> Structural Engineering</li>
-                            <li><i class="fas fa-check"></i> Project Management</li>
-                        </ul>
-                        
-                        <a href="#" class="service-link">
-                            Learn More <i class="fas fa-arrow-right"></i>
-                        </a>
+                        <a href="civil-architecture.html" class="view-more-btn">View More</a>
                     </div>
                 </div>
 
@@ -2130,15 +2125,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         <h3>Real Estate Services</h3>
                         <p class="service-description">Expert property valuation, market analysis, and comprehensive real estate consulting for optimal investment decisions.</p>
                         
-                        <ul class="service-features">
-                            <li><i class="fas fa-check"></i> Property Valuation</li>
-                            <li><i class="fas fa-check"></i> Market Analysis</li>
-                            <li><i class="fas fa-check"></i> Investment Consulting</li>
-                        </ul>
-                        
-                        <a href="#" class="service-link">
-                            Learn More <i class="fas fa-arrow-right"></i>
-                        </a>
+                        <a href="real-state.html" class="view-more-btn">View More</a>
                     </div>
                 </div>
 
@@ -2151,15 +2138,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         <h3>Machine Rental</h3>
                         <p class="service-description">Premium heavy machinery and equipment rental with maintenance support for construction and industrial projects.</p>
                         
-                        <ul class="service-features">
-                            <li><i class="fas fa-check"></i> Heavy Equipment Rental</li>
-                            <li><i class="fas fa-check"></i> Maintenance Support</li>
-                            <li><i class="fas fa-check"></i> 24/7 Availability</li>
-                        </ul>
-                        
-                        <a href="#" class="service-link">
-                            Learn More <i class="fas fa-arrow-right"></i>
-                        </a>
+                        <a href="machine-rental.html" class="view-more-btn">View More</a>
                     </div>
                 </div>
 
@@ -2172,15 +2151,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         <h3>Agriculture Services</h3>
                         <p class="service-description">Modern agricultural consulting, precision farming solutions, and sustainable practices for enhanced crop productivity.</p>
                         
-                        <ul class="service-features">
-                            <li><i class="fas fa-check"></i> Precision Farming</li>
-                            <li><i class="fas fa-check"></i> Crop Monitoring</li>
-                            <li><i class="fas fa-check"></i> Sustainable Solutions</li>
-                        </ul>
-                        
-                        <a href="#" class="service-link">
-                            Learn More <i class="fas fa-arrow-right"></i>
-                        </a>
+                        <a href="agriculture-services.html" class="view-more-btn">View More</a>
                     </div>
                 </div>
 
@@ -2193,38 +2164,11 @@ document.addEventListener('DOMContentLoaded', function() {
                         <h3>Training & Certification</h3>
                         <p class="service-description">Professional development programs and industry certifications to enhance skills and career advancement opportunities.</p>
                         
-                        <ul class="service-features">
-                            <li><i class="fas fa-check"></i> Professional Training</li>
-                            <li><i class="fas fa-check"></i> Industry Certifications</li>
-                            <li><i class="fas fa-check"></i> Career Development</li>
-                        </ul>
-                        
-                        <a href="#" class="service-link">
-                            Learn More <i class="fas fa-arrow-right"></i>
-                        </a>
+                        <a href="training.html" class="view-more-btn">View More</a>
                     </div>
                 </div>
 
-                <!-- GIS Services -->
-                <div class="service-card" tabindex="0">
-                    <div class="service-header" style="background-image: url('images/himalaya.png'); background-size: cover; background-position: center; height: 200px; position: relative;">
-                        <div class="service-badge">Advanced</div>
-                    </div>
-                    <div class="service-content">
-                        <h3>GIS Services</h3>
-                        <p class="service-description">Geographic Information Systems solutions for spatial analysis, mapping, and data visualization for informed decision-making.</p>
-                        
-                        <ul class="service-features">
-                            <li><i class="fas fa-check"></i> Spatial Analysis</li>
-                            <li><i class="fas fa-check"></i> Digital Mapping</li>
-                            <li><i class="fas fa-check"></i> Data Visualization</li>
-                        </ul>
-                        
-                        <a href="#" class="service-link">
-                            Learn More <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
+                
             </div>
         </div>
     </section>
